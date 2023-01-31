@@ -1,0 +1,49 @@
+<%= form_with(model: picture_shot) do |form| %>
+  <% if picture_shot.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(picture_shot.errors.count, "error") %> prohibited this picture_shot from being saved:</h2>
+
+      <ul>
+      <% picture_shot.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="mb-3">
+    <%= form.label :title, class: 'form-label' %>
+      <%= form.text_field :title, class: 'form-control' %>
+    </div>
+
+  <div class="mb-3">
+    <%= form.label :description, class: 'form-label' %>
+      <%= form.rich_text_area :description, class: 'form-control' %>
+    </div>
+
+  <div class="mb-3">
+    <%= form.label :user_references, class: 'form-label' %>
+      <%= form.text_field :user_references, class: 'form-control' %>
+    </div>
+
+  <div class="mb-3">
+    <%= form.label :user_pictureshot, class: 'form-label' %>
+      <%= form.text_field :user_pictureshot, class: 'form-control' %>
+    </div>
+
+  <div class="mb-3">
+    <% if picture_shot.persisted? %>
+      <div class="float-end">
+        <%= link_to 'Destroy', picture_shot, method: :delete, class: "text-danger", data: { confirm: 'Are you sure?' } %>
+      </div>
+    <% end %>
+
+    <%= form.submit class: 'btn btn-primary' %>
+
+    <% if picture_shot.persisted? %>
+      <%= link_to "Cancel", picture_shot, class: "btn btn-link" %>
+    <% else %>
+      <%= link_to "Cancel", picture_shots_path, class: "btn btn-link" %>
+    <% end %>
+  </div>
+<% end %>

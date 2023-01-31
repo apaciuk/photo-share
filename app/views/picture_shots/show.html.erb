@@ -1,0 +1,20 @@
+<div class="page-header">
+  <%= link_to picture_shots_path, class: 'btn btn-default' do %>
+    All Picture_shots
+  <% end %>
+  <%= link_to edit_picture_shot_path(@picture_shot), class: 'btn btn-primary' do %>
+    Edit
+  <% end %>
+  <h1>Show picture_shot</h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt>Title:</dt>
+  <dd><%= @picture_shot.title %></dd>
+  <dt>Description:</dt>
+  <dd><%= @picture_shot.description %></dd>
+  <dt>User references:</dt>
+  <dd><%= @picture_shot.user_references %></dd>
+  <dt>User pictureshot:</dt>
+  <dd><%= @picture_shot.user_pictureshot %></dd>
+</dl>

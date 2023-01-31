@@ -1,0 +1,49 @@
+
+
+
+<div class="row">
+  <div class="col-sm-6">
+    <h1>Picture_shots</h1>
+  </div>
+
+  <div class="col-sm-6 text-end">
+  <%= link_to new_picture_shot_path, class: 'btn btn-primary' do %>
+    Add New Picture shot
+  <% end %>
+  </div>
+</div>
+
+<div class="table-responsive">
+  <table class="table table-striped table-bordered table-hover">
+    <thead>
+      <tr>
+    
+
+            <th>Title</th>
+            <th>Description</th>
+            <th>User references</th>
+            <th>User pictureshot</th>
+            
+          <th></th>
+        
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @picture_shots.each do |picture_shot| %>
+        <%= content_tag :tr, id: dom_id(picture_shot), class: dom_class(picture_shot) do %>
+          
+
+                      <td><%= picture_shot.title %></td>
+                      <td><%= picture_shot.description %></td>
+                      <td><%= picture_shot.user_references %></td>
+                      <td><%= picture_shot.user_pictureshot %></td>
+          
+          
+            <td><%= link_to 'Show', picture_shot %></td>
+          
+        <% end %>
+      <% end %>
+    </tbody>
+  </table>
+</div>
